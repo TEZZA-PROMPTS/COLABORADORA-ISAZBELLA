@@ -1,308 +1,537 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- CONFIGURAÇÃO PARA O LINK LIMPO (OPEN GRAPH) -->
-    <title>SERENA LECLERC • TEZZA PROMPTS</title>
-    <meta name="description" content="TEZZA PROMPTS OFICIAL">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f5c7d9" />
+  <meta name="description" content="Prompts fofos da isazbella" />
+  <title>ISAZBELLA • PROMPTS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Meta Tags para forçar o Instagram a NÃO mostrar imagem -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tezza-prompts.github.io/COLABORADORA-SERENA/COPIAR%20GEMINI.html?refresh=true">
-    <meta property="og:title" content="SERENA LECLERC • TEZZA PROMPTS">
-    <meta property="og:description" content="TEZZA PROMPTS OFICIAL">
-    
-    <!-- Forçamos o robô a não encontrar imagem aqui -->
-    <meta property="og:image" content="">
-    
-    <meta name="twitter:card" content="summary">
+  <style>
+    :root {
+      --pink: #ee9fbd;
+      --pink-dark: #a85178;
+      --cream: #fff9fc;
+      --ink: #67384f;
+      --glass: rgba(255, 247, 251, .72);
+      --line: rgba(255, 255, 255, .86);
+    }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Montserrat:wght@300;400;700&family=Marcellus&family=Nosifer&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --glass-bg: rgba(0, 0, 0, 0.9);
-            --glass-border: rgba(255, 0, 0, 0.6);
-            --accent-color: #ff0000;
-            --blood-red: #8b0000;
-            --dark-blood: #4a0000;
-            --dark-color: #000000;
-            --text-color: #ffffff;
-            --feline-gold: #ff0000;
-        }
+    * { box-sizing: border-box; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+    html, body { min-height: 100%; }
 
-        #splashScreen {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: black;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 1s ease-out;
-            cursor: pointer;
-            overflow: hidden;
-        }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: 'Nunito', sans-serif;
+      overflow-x: hidden;
+      background: #f4cadb;
+      cursor: none;
+    }
 
-        .moon-gif {
-            position: absolute;
-            top: -50px; left: -50px; width: 500px;
-            z-index: 10000;
-            filter: drop-shadow(0 0 30px rgba(255, 0, 0, 0.6));
-            pointer-events: none;
-        }
+    button, a, pre { cursor: none; }
 
-        .bat {
-            position: fixed;
-            width: 120px;
-            pointer-events: none;
-            z-index: 5;
-            filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.3));
-            animation: fly linear forwards;
-        }
+    .background-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      background-image:
+        linear-gradient(180deg, rgba(255, 225, 237, .18), rgba(255, 243, 248, .44)),
+        url('https://i.imgur.com/DIG3OMt.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: saturate(1.06) brightness(1.04);
+    }
 
-        @keyframes fly {
-            from { transform: translate(-200px, 0) scale(1); }
-            to { transform: translate(calc(100vw + 200px), -100px) scale(0.8); }
-        }
+    .background-overlay::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 20%, rgba(255,255,255,.23), transparent 46%), rgba(255,255,255,.08);
+    }
 
-        body {
-            background: url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663610257065/mdCnMnPuRFkDHbXu.png') no-repeat fixed center 20%;
-            background-size: cover;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            color: var(--text-color);
-            overflow-x: hidden;
-        }
+    .soft-glow {
+      position: fixed;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .3);
+      filter: blur(55px);
+      pointer-events: none;
+      z-index: -2;
+    }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle, rgba(20,0,0,0.2) 0%, rgba(0,0,0,0.95) 100%);
-            z-index: -1;
-        }
+    .glow-one { top: 8%; left: -80px; }
+    .glow-two { right: -90px; bottom: 4%; background: rgba(246, 170, 203, .32); }
 
-        header { text-align: center; margin-bottom: 30px; animation: fadeInDown 1.2s ease-out; width: 100%; max-width: 800px; z-index: 10; }
-        .logo { font-family: 'Nosifer', cursive; font-size: 3.5rem; font-weight: 900; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 5px; color: var(--accent-color); text-shadow: 0 0 15px rgba(255, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 1); }
-        .subtitle { font-family: 'Marcellus', serif; font-size: 1rem; letter-spacing: 4px; opacity: 0.9; text-transform: uppercase; color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); margin-bottom: 20px; }
+    header {
+      position: relative;
+      padding: 64px 20px 20px;
+      text-align: center;
+    }
 
-        .container {
-            width: 100%; max-width: 800px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 2px solid var(--glass-border);
-            border-radius: 30px;
-            padding: 40px;
-            box-shadow: 0 0 40px rgba(139, 0, 0, 0.4), 0 25px 60px rgba(0, 0, 0, 0.9);
-            animation: fadeInUp 1s ease-out;
-            position: relative;
-            z-index: 10;
-        }
+    .brand-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: #d66d9b;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      text-shadow: 0 2px 10px rgba(111, 52, 81, .35);
+    }
 
-        .section-title { font-family: 'Nosifer', cursive; font-size: 1.5rem; font-weight: 400; margin-bottom: 30px; color: var(--accent-color); text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 8px rgba(0,0,0,0.8); display: inline-block; padding-bottom: 5px; }
+    .brand-line::before, .brand-line::after {
+      content: '♡';
+      font-size: 1.2rem;
+      color: #fff;
+    }
 
-        .prompt-box {
-            background: linear-gradient(110deg, rgba(30, 0, 0, 0.4) 30%, rgba(255, 0, 0, 0.2) 48%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 0, 0, 0.2) 52%, rgba(30, 0, 0, 0.4) 70%);
-            background-size: 200% 100%;
-            animation: shimmer 3s infinite linear;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 10px;
-            padding: 50px 40px 40px 40px;
-            margin-bottom: 30px;
-            max-height: 450px;
-            overflow-y: auto;
-            border: 3px solid var(--blood-red);
-            position: relative;
-            box-shadow: inset 0 0 50px rgba(255, 0, 0, 0.15), 0 0 25px rgba(139, 0, 0, 0.6);
-            scrollbar-width: thin;
-            scrollbar-color: var(--accent-color) transparent;
-        }
+    .title-wrap {
+      position: relative;
+      display: inline-block;
+      margin: 3px auto 0;
+    }
 
-        @keyframes shimmer { 0% { background-position: -100% 0; } 100% { background-position: 100% 0; } }
+    h1 {
+      margin: 0;
+      color: #d66d9b;
+      font-family: 'Baloo 2', cursive;
+      font-size: clamp(3.3rem, 12vw, 7.2rem);
+      font-weight: 700;
+      line-height: .96;
+      letter-spacing: 5px;
+      text-shadow: 0 1px 0 #fff, 0 0 14px rgba(235, 120, 169, .72), 0 8px 22px rgba(112, 57, 81, .26);
+      text-transform: uppercase;
+      animation: kittenPulse 2.4s ease-in-out infinite;
+    }
 
-        .metallic-text {
-            font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 25px; display: block;
-            background: linear-gradient(to right, #444 20%, #fff 40%, #fff 60%, #444 80%);
-            background-size: 200% auto;
-            background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            animation: shine-metal 3s linear infinite;
-            text-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
-        }
+    @keyframes kittenPulse {
+      0%, 100% { transform: scale(1); filter: brightness(1); }
+      50% { transform: scale(1.045); filter: brightness(1.12); }
+    }
 
-        @keyframes shine-metal { to { background-position: 200% center; } }
+    .subtitle {
+      margin: 8px 0 0;
+      color: #d66d9b;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-shadow: 0 2px 10px rgba(111, 52, 81, .3);
+      text-transform: uppercase;
+    }
 
-        .blood-drip { position: absolute; top: 0; left: 0; width: 100%; height: 60px; background-image: url('https://www.transparentpng.com/download/blood/dripping-blood-png-free-download-23.png'); background-size: 100% 100%; background-repeat: no-repeat; z-index: 10; pointer-events: none; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.5)); opacity: 0.9; }
+    .instagram {
+      display: inline-block;
+      margin-top: 9px;
+      color: #d66d9b;
+      font-size: .95rem;
+      font-weight: 700;
+      text-decoration: none;
+      text-shadow: 0 2px 8px rgba(111, 52, 81, .3);
+    }
 
-        .prompt-box::before, .prompt-box::after, .fang-bottom-left, .fang-bottom-right { content: ''; position: absolute; width: 0; height: 0; border-left: 15px solid transparent; border-right: 15px solid transparent; z-index: 15; }
-        .prompt-box::before { top: -3px; left: 30px; border-top: 35px solid var(--blood-red); filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8)); }
-        .prompt-box::after { top: -3px; right: 30px; border-top: 35px solid var(--blood-red); filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8)); }
-        .fang-bottom-left { bottom: -3px; left: 30px; border-bottom: 35px solid var(--blood-red); filter: drop-shadow(0 -2px 5px rgba(0,0,0,0.8)); }
-        .fang-bottom-right { bottom: -3px; right: 30px; border-bottom: 35px solid var(--blood-red); filter: drop-shadow(0 -2px 5px rgba(0,0,0,0.8)); }
+    .instagram:hover { text-decoration: underline; }
 
-        .prompt-box::-webkit-scrollbar { width: 6px; }
-        .prompt-box::-webkit-scrollbar-thumb { background-color: var(--accent-color); border-radius: 10px; }
+    .container {
+      width: min(900px, calc(100% - 28px));
+      margin: 28px auto 58px;
+    }
 
-        .copy-btn {
-            display: block; width: 100%;
-            background: linear-gradient(135deg, #4a0000, #8b0000, #ff0000);
-            color: white; border: 2px solid rgba(255, 0, 0, 0.5); padding: 20px; border-radius: 10px;
-            font-family: 'Nosifer', cursive; font-size: 1rem; font-weight: 400; cursor: pointer; transition: all 0.4s;
-            text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 0, 0, 0.3);
-        }
+    .prompt-box {
+      position: relative;
+      isolation: isolate;
+      padding: 38px clamp(20px, 6vw, 64px) 34px;
+      overflow: visible;
+      border: 2px solid var(--line);
+      border-radius: 42px 18px 42px 18px;
+      background: linear-gradient(145deg, rgba(255,255,255,.8), rgba(255,239,247,.57));
+      box-shadow: 0 24px 55px rgba(133, 65, 94, .2), inset 0 0 30px rgba(255,255,255,.75);
+      backdrop-filter: blur(14px);
+    }
 
-        .copy-btn:hover { transform: scale(1.02); box-shadow: 0 0 30px rgba(255, 0, 0, 0.6); filter: brightness(1.2); border-color: #fff; }
+    .prompt-box::before {
+      content: '';
+      position: absolute;
+      inset: 10px;
+      z-index: -1;
+      border: 1px dashed rgba(190, 104, 140, .28);
+      border-radius: 32px 12px 32px 12px;
+      pointer-events: none;
+    }
 
-        .social-tag { color: var(--accent-color); text-decoration: none; font-weight: 900; font-family: 'Nosifer', cursive; font-size: 0.9rem; transition: 0.3s; }
-        .social-tag:hover { text-shadow: 0 0 15px var(--accent-color); color: #fff; }
+    .prompt-cat {
+      position: absolute;
+      right: 12px;
+      top: -74px;
+      width: 128px;
+      height: 104px;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 5px rgba(116, 59, 84, .2));
+      animation: tinyBounce 2.8s ease-in-out infinite;
+    }
 
-        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-40px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes tinyBounce { 50% { transform: translateY(-9px) rotate(4deg); } }
 
-        #notification {
-            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8);
-            background: rgba(40, 0, 0, 0.95); color: var(--accent-color); padding: 40px 60px; border-radius: 10px;
-            font-family: 'Nosifer', cursive; display: flex; flex-direction: column; align-items: center; justify-content: center;
-            visibility: hidden; opacity: 0; z-index: 2000; box-shadow: 0 0 70px rgba(255, 0, 0, 0.8); border: 3px solid var(--accent-color);
-            text-align: center; transition: all 0.3s;
-        }
-        #notification.show { visibility: visible; opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    .prompt-heading {
+      margin: 0 0 18px;
+      padding-top: 24px;
+      color: var(--pink-dark);
+      font-family: 'Baloo 2', cursive;
+      font-size: clamp(1.55rem, 4vw, 2.15rem);
+      line-height: 1.1;
+      text-align: center;
+    }
 
-        .scratch-mark { position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; z-index: -1; opacity: 0.6; }
-        .scratch-line { position: absolute; background: linear-gradient(90deg, transparent, var(--accent-color), transparent); height: 2px; width: 150%; transform: rotate(-45deg); left: -25%; }
-        .scratch-1 { top: 20%; animation: scratchAnim 0.4s ease-out forwards; }
-        .scratch-2 { top: 40%; animation: scratchAnim 0.4s ease-out 0.1s forwards; }
-        .scratch-3 { top: 60%; animation: scratchAnim 0.4s ease-out 0.2s forwards; }
+    .prompt-heading span {
+      display: block;
+      padding: 7px 16px 5px;
+      color: #d66d9b;
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(1rem, 3vw, 1.25rem);
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-shadow: 0 1px 0 #fff, 0 0 14px rgba(235, 120, 169, .72);
+      text-transform: uppercase;
+    }
+    .prompt-heading strong {
+      position: relative;
+      display: inline-block;
+      padding: 0 34px;
+      display: block;
+      margin-top: 3px;
+      color: #d66d9b;
+      font: 800 clamp(1.35rem, 4vw, 1.9rem) 'Nunito', sans-serif;
+      letter-spacing: 5px;
+      text-shadow: 0 0 9px rgba(255,255,255,.95), 0 0 18px rgba(235, 120, 169, .55);
+      text-transform: uppercase;
+      animation: geminiGlow 1.8s ease-in-out infinite;
+    }
 
-        @keyframes scratchAnim {
-            0% { transform: rotate(-45deg) translateX(-100%); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: rotate(-45deg) translateX(100%); opacity: 0; }
-        }
+    .prompt-heading strong::before,
+    .prompt-heading strong::after {
+      position: absolute;
+      top: 50%;
+      color: #fff;
+      font: 700 1.1rem 'Nunito', sans-serif;
+      text-shadow: 0 0 6px #fff, 0 0 14px #ed82ae;
+      animation: sparkleTwinkle 1.2s ease-in-out infinite;
+      content: '✦';
+    }
 
-        #musicPlayerContainer { position: fixed; top: -1000px; left: 0; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
-        #hiddenTextarea { position: absolute; left: -9999px; opacity: 0; }
-    </style>
+    .prompt-heading strong::before { left: 2px; }
+    .prompt-heading strong::after { right: 2px; animation-delay: .45s; }
+
+    @keyframes geminiGlow {
+      50% { text-shadow: 0 0 14px #fff, 0 0 28px rgba(235, 120, 169, .82); }
+    }
+
+    @keyframes sparkleTwinkle {
+      0%, 100% { opacity: .45; transform: translateY(-50%) scale(.7) rotate(0deg); }
+      50% { opacity: 1; transform: translateY(-50%) scale(1.35) rotate(18deg); }
+    }
+
+    .pre-container { position: relative; }
+
+    pre {
+      min-height: 240px;
+      margin: 0;
+      padding: 22px;
+      overflow: auto;
+      border: 1px solid rgba(255,255,255,.95);
+      border-radius: 25px 9px 25px 9px;
+      background: rgba(255,255,255,.7);
+      color: #5d3d4e;
+      font: 500 .98rem/1.65 'Nunito', sans-serif;
+      white-space: pre-wrap;
+      word-break: break-word;
+      text-align: left;
+      box-shadow: inset 0 2px 12px rgba(167, 84, 119, .06);
+    }
+
+    .copy-message {
+      position: absolute;
+      inset: 18px;
+      display: none;
+      place-items: center;
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(255, 248, 252, .96);
+      color: var(--pink-dark);
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-align: center;
+      text-transform: uppercase;
+      box-shadow: 0 10px 24px rgba(108, 49, 78, .13);
+    }
+
+    button {
+      display: block;
+      margin: 26px auto 0;
+      min-width: 215px;
+      padding: 14px 26px;
+      border: 2px solid rgba(255,255,255,.88);
+      border-radius: 999px;
+      background: linear-gradient(135deg, #fff, #ffeaf3);
+      color: #d66d9b;
+      font: 800 .9rem 'Nunito', sans-serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      box-shadow: 0 8px 20px rgba(130, 56, 91, .15);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    button:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 25px rgba(130, 56, 91, .23); }
+    button:active { transform: scale(.97); }
+
+    .hint { margin: 15px 0 0; color: #87536d; font-size: .75rem; font-style: italic; text-align: center; }
+
+    footer {
+      padding: 0 20px 42px;
+      color: #d66d9b;
+      font-size: .86rem;
+      font-weight: 700;
+      line-height: 1.7;
+      text-align: center;
+      text-shadow: 0 2px 8px rgba(111, 52, 81, .38);
+    }
+
+    .cat-cursor {
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 100;
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      filter: drop-shadow(0 4px 4px rgba(96, 46, 72, .25));
+    }
+
+    .surprise-cat {
+      position: fixed;
+      right: clamp(18px, 7vw, 95px);
+      bottom: -125px;
+      z-index: 12;
+      width: 118px;
+      height: 118px;
+      object-fit: contain;
+      opacity: 0;
+      pointer-events: none;
+      filter: drop-shadow(0 8px 5px rgba(113, 52, 81, .25));
+    }
+
+    .surprise-cat.show {
+      animation: surprisePop 3.8s ease-in-out forwards;
+    }
+
+    @keyframes surprisePop {
+      0% { bottom: -125px; opacity: 0; transform: rotate(-10deg) scale(.8); }
+      18% { bottom: 17px; opacity: 1; transform: rotate(5deg) scale(1); }
+      33% { bottom: 150px; opacity: 1; transform: rotate(-8deg) scale(1.08); }
+      48% { bottom: 17px; opacity: 1; transform: rotate(7deg) scale(.98); }
+      61% { bottom: 88px; opacity: 1; transform: rotate(-4deg) scale(1.03); }
+      76% { bottom: 17px; opacity: 1; transform: rotate(3deg) scale(1); }
+      100% { bottom: -125px; opacity: 0; transform: rotate(12deg) scale(.8); }
+    }
+
+    .music-entry {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: rgba(115, 55, 82, .26);
+      backdrop-filter: blur(9px);
+      transition: opacity .55s ease, visibility .55s ease;
+    }
+
+    .music-entry.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+    .entry-box {
+      position: relative;
+      width: min(100%, 430px);
+      padding: 34px 26px 30px;
+      border: 2px solid rgba(255,255,255,.86);
+      border-radius: 42px 16px 42px 16px;
+      background: linear-gradient(145deg, rgba(255,255,255,.84), rgba(255,234,244,.7));
+      box-shadow: 0 25px 60px rgba(91, 41, 66, .25);
+      text-align: center;
+    }
+
+    .entry-cat {
+      position: absolute;
+      right: 64px;
+      bottom: 0;
+      z-index: 3;
+      width: 88px;
+      height: 72px;
+      object-fit: contain;
+      transform: rotate(0deg) scaleX(-1);
+      filter: drop-shadow(0 7px 4px rgba(96, 46, 72, .28));
+      pointer-events: none;
+    }
+    .entry-box h2 { margin: 3px 0 4px; color: var(--pink-dark); font: 700 2.1rem 'Baloo 2', cursive; }
+    .entry-box p { margin: 0; color: #85516a; font-weight: 700; }
+    .entry-box button { position: relative; z-index: 1; margin-top: 21px; }
+
+    @media (max-width: 650px) {
+      body, button, a, pre { cursor: auto; }
+      .cat-cursor { display: none; }
+      header { padding-top: 45px; }
+      .prompt-cat { top: -56px; right: -2px; width: 94px; height: 78px; }
+      .prompt-box { margin-top: 24px; }
+      .entry-cat { right: 51px; bottom: 0; width: 74px; height: 61px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
 </head>
 <body>
+  <div class="background-overlay"></div>
+  <div class="soft-glow glow-one"></div>
+  <div class="soft-glow glow-two"></div>
+  <audio id="backgroundMusic" src="musicisaz.mp3" loop preload="auto"></audio>
 
-    <!-- Splash Screen SEM A TAG IMG DIRETA (Robôs não verão) -->
-    <div id="splashScreen" onclick="enterSite()">
-        <!-- O GIF será injetado via JavaScript apenas para humanos -->
+  <div id="musicEntry" class="music-entry" role="dialog" aria-label="Entrar na página">
+    <div class="entry-box">
+      <img class="entry-cat" src="https://media.giphy.com/media/h0d3K4cSJLs1rotKxA/giphy.gif" alt="Gatinho fofo dando boas-vindas">
+      <h2> Seja Bem-Vindos!</h2>
+      <p>clique para entrar no cantinho da isazbella</p>
+      <button id="enterBtn" type="button">Entrar ♡</button>
     </div>
+  </div>
 
-    <header>
-        <div class="logo">SERENA</div>
-        <div class="subtitle">TEZZA PROMPTS OFICIAL</div>
-    </header>
+  <img id="catCursor" class="cat-cursor" src="https://media.giphy.com/media/146gtxJUW6IR7W/giphy.gif" alt="">
+  <img id="surpriseCat" class="surprise-cat" src="https://media.giphy.com/media/JoaeMGYYkHpC/giphy.gif" alt="Gatinho surpresa aparecendo na parte inferior" aria-hidden="true">
 
-    <div class="container">
-        <div class="section-title">SERENA COLABORADORA</div>
-        <div class="metallic-text">GEMINI [MODO PRO]</div>
-        <div style="position: relative;">
-            <div class="prompt-box" id="promptContent">
-                <div class="blood-drip"></div>
-                <div class="fang-bottom-left"></div>
-                <div class="fang-bottom-right"></div>
-                [COLOQUE O SEU PROMPT AQUI ]
-            </div>
-        </div>
-        <button class="copy-btn" id="copyBtn" onclick="copyPrompt()">Copiar Prompt</button>
-        <div style="text-align: center;">
-            <p style="font-family: 'Marcellus', serif; font-size: 1rem; letter-spacing: 2px;">MARQUE <a href="#" class="social-tag">@serena.avuu</a></p>
-        </div>
+  <header>
+    <div class="title-wrap">
+      <h1>ISAZBELLA</h1>
     </div>
+    <p class="subtitle">TEZZA PROMPTS OFICIAL</p>
+    <a class="instagram" href="https://www.instagram.com/_isazbella" target="_blank" rel="noopener">@_isazbella</a>
+  </header>
 
-    <div id="musicPlayerContainer">
-        <audio id="bgMusic" loop>
-            <source src="musicserena.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-    <div id="notification">
-        <div class="scratch-mark">
-            <div class="scratch-line scratch-1"></div>
-            <div class="scratch-line scratch-2"></div>
-            <div class="scratch-line scratch-3"></div>
-        </div>
-        <div id="notificationText">PROMPT COPIADO!</div>
-    </div>
-
-    <textarea id="hiddenTextarea"></textarea>
-
-    <script>
-        // Técnica para esconder imagens de robôs de redes sociais
-        window.onload = function() {
-            const splash = document.getElementById('splashScreen');
-            // Injetamos o GIF apenas quando a página carrega no navegador
-            // Robôs de preview (como o do Instagram) geralmente não executam esse script
-            const img = document.createElement('img');
-            img.src = "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzRsZXY2czUwYWZ2aXF5eWJubHRweHBwcnRidmZjcmdueHN2bGtjMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Y9Fl2K4IlsRQdlo8EH/giphy.gif";
-            img.className = "moon-gif";
-            img.alt = "Moon";
-            splash.appendChild(img);
-        };
-
-        function createBat() {
-            const bat = document.createElement('img');
-            bat.src = 'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHM2emF3emJlY2dyZGtjcnB3YXI1YmlhcXp0b2xhemVsZmpwY29xbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/dxxSayMjPZEySRJhUG/giphy.gif';
-            bat.className = 'bat';
-            const startY = Math.random() * window.innerHeight;
-            const duration = 5 + Math.random() * 7;
-            bat.style.top = `${startY}px`;
-            bat.style.animationDuration = `${duration}s`;
-            document.body.appendChild(bat);
-            setTimeout(() => { bat.remove(); }, duration * 1000);
-        }
-
-        function enterSite() {
-            const splash = document.getElementById('splashScreen');
-            const music = document.getElementById('bgMusic');
-            splash.style.opacity = '0';
-            setTimeout(() => { splash.style.display = 'none'; }, 1000);
-            music.play().catch(e => console.log("Audio play prevented."));
-            setInterval(createBat, 3000);
-            for(let i=0; i<3; i++) { setTimeout(createBat, i * 1000); }
-        }
-
-        function copyPrompt() {
-            const promptText = document.getElementById('promptContent').innerText;
-            const copyBtn = document.getElementById('copyBtn');
-            const notification = document.getElementById('notification');
-            const textToCopy = promptText + "\n\n@serena.avuu";
+  <main class="container">
+    <section class="prompt-box" aria-labelledby="promptTitle">
+      <img class="prompt-cat" src="https://media.giphy.com/media/4QZK21zlzVIyc/giphy.gif" alt="Gatinho fofo apoiado na caixa do prompt">
+      <h2 id="promptTitle" class="prompt-heading"><span>ISAZBELLA COLABORADORA</span><strong>GEMINI</strong></h2>
+      <div class="pre-container">
+        <pre id="prompt1"> 
+                  
             
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(textToCopy).then(() => { executarMudancaBotao(); });
-            } else {
-                const textarea = document.getElementById('hiddenTextarea');
-                textarea.value = textToCopy;
-                textarea.select();
-                document.execCommand('copy');
-                executarMudancaBotao();
-            }
+[COLOQUE AQUI O SEU PROMPT]
 
-            function executarMudancaBotao() {
-                copyBtn.innerText = "PROMPT COPIADO COM SUCESSO MARQUE @serena.avuu";
-                notification.classList.add('show');
-                setTimeout(() => {
-                    notification.classList.remove('show');
-                    copyBtn.innerText = "Copiar Prompt";
-                }, 3000);
-            }
-        }
-    </script>
+
+            
+</pre>
+        <div id="copySuccess" class="copy-message">Prompt copiado!<br>marque @_isazbella ♡</div>
+      </div>
+      <button id="copyBtn" type="button">Copiar prompt</button>
+      <p class="hint">Se o botão não funcionar, selecione o texto e copie manualmente.</p>
+    </section>
+  </main>
+
+  <footer>
+    Marque <a class="instagram" href="https://www.instagram.com/_isazbella" target="_blank" rel="noopener">@_isazbella</a><br>
+    ISAZBELLA  • TEZZA PROMPTS OFICIAL — CONTEÚDO PROTEGIDO.
+  </footer>
+
+  <script>
+    const GIFS = {
+      mouse: 'https://media.giphy.com/media/146gtxJUW6IR7W/giphy.gif'
+    };
+
+    let audioContext;
+
+    function startAudio() {
+      audioContext = audioContext || new (window.AudioContext || window.webkitAudioContext)();
+      if (audioContext.state === 'suspended') audioContext.resume();
+    }
+
+    // Cria um som curtinho e fofo de gatinho usando Web Audio, sem arquivo externo.
+    function playKittenSound() {
+      if (!audioContext) return;
+      const now = audioContext.currentTime;
+      const oscillator = audioContext.createOscillator();
+      const gain = audioContext.createGain();
+      oscillator.type = 'triangle';
+      oscillator.frequency.setValueAtTime(540 + Math.random() * 80, now);
+      oscillator.frequency.exponentialRampToValueAtTime(230 + Math.random() * 50, now + .16);
+      gain.gain.setValueAtTime(.0001, now);
+      gain.gain.exponentialRampToValueAtTime(.075, now + .025);
+      gain.gain.exponentialRampToValueAtTime(.0001, now + .2);
+      oscillator.connect(gain).connect(audioContext.destination);
+      oscillator.start(now);
+      oscillator.stop(now + .22);
+    }
+
+    function copyPrompt() {
+      const prompt = document.getElementById('prompt1');
+      const message = document.getElementById('copySuccess');
+      const text = prompt.innerText.trim();
+      startAudio();
+      playKittenSound();
+      showSurpriseCat();
+      navigator.clipboard?.writeText(text).catch(() => {
+        const range = document.createRange();
+        range.selectNodeContents(prompt);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand('copy');
+        selection.removeAllRanges();
+      });
+      message.style.display = 'grid';
+      prompt.style.opacity = '.15';
+      setTimeout(() => { message.style.display = 'none'; prompt.style.opacity = '1'; }, 2600);
+    }
+
+    function showSurpriseCat() {
+      const surprise = document.getElementById('surpriseCat');
+      surprise.classList.remove('show');
+      void surprise.offsetWidth;
+      surprise.classList.add('show');
+    }
+
+    const entry = document.getElementById('musicEntry');
+    const backgroundMusic = document.getElementById('backgroundMusic');
+    backgroundMusic.volume = 0.55;
+
+    document.getElementById('enterBtn').addEventListener('click', () => {
+      startAudio();
+      playKittenSound();
+      backgroundMusic.play().catch(() => {});
+      entry.classList.add('hidden');
+    });
+
+    document.getElementById('copyBtn').addEventListener('click', copyPrompt);
+
+    // Um miau suave em cada clique após a entrada, exceto no botão de copiar.
+    document.addEventListener('click', (event) => {
+      if (!entry.classList.contains('hidden')) return;
+      if (event.target.closest('#copyBtn')) return;
+      startAudio();
+      playKittenSound();
+    });
+
+    const catCursor = document.getElementById('catCursor');
+    window.addEventListener('mousemove', (event) => {
+      catCursor.style.left = `${event.clientX}px`;
+      catCursor.style.top = `${event.clientY}px`;
+    });
+
+  </script>
 </body>
 </html>
