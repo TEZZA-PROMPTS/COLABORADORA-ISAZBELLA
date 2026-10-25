@@ -9,8 +9,10 @@
   <meta name="twitter:title" content="ISAZBELLA • TEZZA PROMPTS" />
   <meta name="twitter:description" content="TEZZA PROMPTS OFICIAL" />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tezza-prompts.github.io/COLABORADORA-ISAZBELLA/GEMINI-01.html?refresh=true" />
   <meta property="og:title" content="ISAZBELLA • TEZZA PROMPTS" />
   <meta property="og:description" content="TEZZA PROMPTS OFICIAL" />
+  <meta property="og:image" content="" />
   <title>ISAZBELLA • TEZZA PROMPTS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -411,15 +413,15 @@
 
   <div id="musicEntry" class="music-entry" role="dialog" aria-label="Entrar na página">
     <div class="entry-box">
-      <img class="entry-cat" src="https://media.giphy.com/media/h0d3K4cSJLs1rotKxA/giphy.gif" alt="Gatinho fofo dando boas-vindas">
+      <img class="entry-cat" data-src="https://media.giphy.com/media/h0d3K4cSJLs1rotKxA/giphy.gif" alt="Gatinho fofo dando boas-vindas">
       <h2> Seja Bem-Vindos!</h2>
       <p>clique para entrar no cantinho da isazbella</p>
       <button id="enterBtn" type="button">Entrar ♡</button>
     </div>
   </div>
 
-  <img id="catCursor" class="cat-cursor" src="https://media.giphy.com/media/146gtxJUW6IR7W/giphy.gif" alt="">
-  <img id="surpriseCat" class="surprise-cat" src="https://media.giphy.com/media/JoaeMGYYkHpC/giphy.gif" alt="Gatinho surpresa aparecendo na parte inferior" aria-hidden="true">
+  <img id="catCursor" class="cat-cursor" data-src="https://media.giphy.com/media/146gtxJUW6IR7W/giphy.gif" alt="">
+  <img id="surpriseCat" class="surprise-cat" data-src="https://media.giphy.com/media/JoaeMGYYkHpC/giphy.gif" alt="Gatinho surpresa aparecendo na parte inferior" aria-hidden="true">
 
   <header>
     <div class="title-wrap">
@@ -431,7 +433,7 @@
 
   <main class="container">
     <section class="prompt-box" aria-labelledby="promptTitle">
-      <img class="prompt-cat" src="https://media.giphy.com/media/4QZK21zlzVIyc/giphy.gif" alt="Gatinho fofo apoiado na caixa do prompt">
+      <img class="prompt-cat" data-src="https://media.giphy.com/media/4QZK21zlzVIyc/giphy.gif" alt="Gatinho fofo apoiado na caixa do prompt">
       <h2 id="promptTitle" class="prompt-heading"><span>ISAZBELLA COLABORADORA</span><strong>GEMINI</strong></h2>
       <div class="pre-container">
         <pre id="prompt1"> 
@@ -455,6 +457,11 @@
   </footer>
 
   <script>
+    // Os GIFs são carregados somente no navegador, evitando miniaturas automáticas no link.
+    document.querySelectorAll('img[data-src]').forEach((image) => {
+      image.src = image.dataset.src;
+    });
+
     const GIFS = {
       mouse: 'https://media.giphy.com/media/146gtxJUW6IR7W/giphy.gif'
     };
