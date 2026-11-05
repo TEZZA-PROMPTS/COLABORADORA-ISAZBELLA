@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f5c7d9" />
+  <meta name="description" content="TEZZA PROMPTS OFICIAL" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="ISAZBELLA • TEZZA PROMPTS" />
+  <meta name="twitter:description" content="TEZZA PROMPTS OFICIAL" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tezza-prompts.github.io/COLABORADORA-ISAZBELLA/FLOW-01.html?refresh=true" />
+  <meta property="og:title" content="ISAZBELLA • TEZZA PROMPTS" />
+  <meta property="og:description" content="TEZZA PROMPTS OFICIAL" />
+  <meta property="og:image" content="" />
+  <title>ISAZBELLA • TEZZA PROMPTS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --pink: #ee9fbd;
+      --pink-dark: #a85178;
+      --cream: #fff9fc;
+      --ink: #67384f;
+      --glass: rgba(255, 247, 251, .72);
+      --line: rgba(255, 255, 255, .86);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { min-height: 100%; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: 'Nunito', sans-serif;
+      overflow-x: hidden;
+      background: #f4cadb;
+      cursor: none;
+    }
+
+    button, a, pre { cursor: none; }
+
+    .background-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      background-image:
+        linear-gradient(180deg, rgba(255, 225, 237, .18), rgba(255, 243, 248, .44)),
+        url('https://i.imgur.com/DIG3OMt.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: saturate(1.06) brightness(1.04);
+    }
+
+    .background-overlay::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 20%, rgba(255,255,255,.23), transparent 46%), rgba(255,255,255,.08);
+    }
+
+    .soft-glow {
+      position: fixed;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .3);
+      filter: blur(55px);
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    .glow-one { top: 8%; left: -80px; }
+    .glow-two { right: -90px; bottom: 4%; background: rgba(246, 170, 203, .32); }
+
+    header {
+      position: relative;
+      padding: 64px 20px 20px;
+      text-align: center;
+    }
+
+    .brand-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: #d66d9b;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      text-shadow: 0 2px 10px rgba(111, 52, 81, .35);
+    }
+
+    .brand-line::before, .brand-line::after {
+      content: '♡';
+      font-size: 1.2rem;
+      color: #fff;
+    }
+
+    .title-wrap {
+      position: relative;
+      display: inline-block;
+      margin: 3px auto 0;
+    }
+
+    h1 {
+      margin: 0;
+      color: #d66d9b;
+      font-family: 'Baloo 2', cursive;
+      font-size: clamp(3.3rem, 12vw, 7.2rem);
+      font-weight: 700;
+      line-height: .96;
+      letter-spacing: 5px;
+      text-shadow: 0 1px 0 #fff, 0 0 14px rgba(235, 120, 169, .72), 0 8px 22px rgba(112, 57, 81, .26);
+      text-transform: uppercase;
+      animation: kittenPulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes kittenPulse {
+      0%, 100% { transform: scale(1); filter: brightness(1); }
+      50% { transform: scale(1.045); filter: brightness(1.12); }
+    }
+
+    .subtitle {
+      margin: 8px 0 0;
+      color: #d66d9b;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-shadow: 0 2px 10px rgba(111, 52, 81, .3);
+      text-transform: uppercase;
+    }
+
+    .instagram {
+      display: inline-block;
+      margin-top: 9px;
+      color: #d66d9b;
+      font-size: .95rem;
+      font-weight: 700;
+      text-decoration: none;
+      text-shadow: 0 2px 8px rgba(111, 52, 81, .3);
+    }
+
+    .instagram:hover { text-decoration: underline; }
+
+    .container {
+      width: min(900px, calc(100% - 28px));
+      margin: 28px auto 58px;
+    }
+
+    .prompt-box {
+      position: relative;
+      isolation: isolate;
+      padding: 38px clamp(20px, 6vw, 64px) 34px;
+      overflow: visible;
+      border: 2px solid var(--line);
+      border-radius: 42px 18px 42px 18px;
+      background: linear-gradient(145deg, rgba(255,255,255,.8), rgba(255,239,247,.57));
+      box-shadow: 0 24px 55px rgba(133, 65, 94, .2), inset 0 0 30px rgba(255,255,255,.75);
+      backdrop-filter: blur(14px);
+    }
+
+    .prompt-box::before {
+      content: '';
+      position: absolute;
+      inset: 10px;
+      z-index: -1;
+      border: 1px dashed rgba(190, 104, 140, .28);
+      border-radius: 32px 12px 32px 12px;
+      pointer-events: none;
+    }
+
+    .prompt-cat {
+      position: absolute;
+      right: 12px;
+      top: -74px;
+      width: 128px;
+      height: 104px;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 5px rgba(116, 59, 84, .2));
+      animation: tinyBounce 2.8s ease-in-out infinite;
+    }
+
+    @keyframes tinyBounce { 50% { transform: translateY(-9px) rotate(4deg); } }
+
+    .prompt-heading {
+      margin: 0 0 18px;
+      padding-top: 24px;
+      color: var(--pink-dark);
+      font-family: 'Baloo 2', cursive;
+      font-size: clamp(1.55rem, 4vw, 2.15rem);
+      line-height: 1.1;
+      text-align: center;
+    }
+
+    .prompt-heading span {
+      display: block;
+      padding: 7px 16px 5px;
+      color: #d66d9b;
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(1rem, 3vw, 1.25rem);
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-shadow: 0 1px 0 #fff, 0 0 14px rgba(235, 120, 169, .72);
+      text-transform: uppercase;
+    }
+    .prompt-heading strong {
+      position: relative;
+      display: inline-block;
+      padding: 0 34px;
+      display: block;
+      margin-top: 3px;
+      color: #d66d9b;
+      font: 800 clamp(1.35rem, 4vw, 1.9rem) 'Nunito', sans-serif;
+      letter-spacing: 5px;
+      text-shadow: 0 0 9px rgba(255,255,255,.95), 0 0 18px rgba(235, 120, 169, .55);
+      text-transform: uppercase;
+      animation: FLOWGlow 1.8s ease-in-out infinite;
+    }
+
+    .prompt-heading strong::before,
+    .prompt-heading strong::after {
+      position: absolute;
+      top: 50%;
+      color: #fff;
+      font: 700 1.1rem 'Nunito', sans-serif;
+      text-shadow: 0 0 6px #fff, 0 0 14px #ed82ae;
+      animation: sparkleTwinkle 1.2s ease-in-out infinite;
+      content: '✦';
+    }
+
+    .prompt-heading strong::before { left: 2px; }
+    .prompt-heading strong::after { right: 2px; animation-delay: .45s; }
+
+    @keyframes FLOWGlow {
+      50% { text-shadow: 0 0 14px #fff, 0 0 28px rgba(235, 120, 169, .82); }
+    }
+
+    @keyframes sparkleTwinkle {
+      0%, 100% { opacity: .45; transform: translateY(-50%) scale(.7) rotate(0deg); }
+      50% { opacity: 1; transform: translateY(-50%) scale(1.35) rotate(18deg); }
+    }
+
+    .pre-container { position: relative; }
+
+    pre {
+      min-height: 240px;
+      margin: 0;
+      padding: 22px;
+      overflow: auto;
+      border: 1px solid rgba(255,255,255,.95);
+      border-radius: 25px 9px 25px 9px;
+      background: rgba(255,255,255,.7);
+      color: #5d3d4e;
+      font: 500 .98rem/1.65 'Nunito', sans-serif;
+      white-space: pre-wrap;
+      word-break: break-word;
+      text-align: left;
+      box-shadow: inset 0 2px 12px rgba(167, 84, 119, .06);
+    }
+
+    .copy-message {
+      position: absolute;
+      inset: 18px;
+      display: none;
+      place-items: center;
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(255, 248, 252, .96);
+      color: var(--pink-dark);
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-align: center;
+      text-transform: uppercase;
+      box-shadow: 0 10px 24px rgba(108, 49, 78, .13);
+    }
+
+    button {
+      display: block;
+      margin: 26px auto 0;
+      min-width: 215px;
+      padding: 14px 26px;
+      border: 2px solid rgba(255,255,255,.88);
+      border-radius: 999px;
+      background: linear-gradient(135deg, #fff, #ffeaf3);
+      color: #d66d9b;
+      font: 800 .9rem 'Nunito', sans-serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      box-shadow: 0 8px 20px rgba(130, 56, 91, .15);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    button:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 25px rgba(130, 56, 91, .23); }
+    button:active { transform: scale(.97); }
+
+    .hint { margin: 15px 0 0; color: #87536d; font-size: .75rem; font-style: italic; text-align: center; }
+
+    footer {
+      padding: 0 20px 42px;
+      color: #d66d9b;
+      font-size: .86rem;
+      font-weight: 700;
+      line-height: 1.7;
+      text-align: center;
+      text-shadow: 0 2px 8px rgba(111, 52, 81, .38);
+    }
+
+    .cat-cursor {
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 100;
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      filter: drop-shadow(0 4px 4px rgba(96, 46, 72, .25));
+    }
+
+    .surprise-cat {
+      position: fixed;
+      right: clamp(18px, 7vw, 95px);
+      bottom: -125px;
+      z-index: 12;
+      width: 118px;
+      height: 118px;
+      object-fit: contain;
+      opacity: 0;
+      pointer-events: none;
+      filter: drop-shadow(0 8px 5px rgba(113, 52, 81, .25));
+    }
+
+    .surprise-cat.show {
+      animation: surprisePop 3.8s ease-in-out forwards;
+    }
+
+    @keyframes surprisePop {
+      0% { bottom: -125px; opacity: 0; transform: rotate(-10deg) scale(.8); }
+      18% { bottom: 17px; opacity: 1; transform: rotate(5deg) scale(1); }
+      33% { bottom: 150px; opacity: 1; transform: rotate(-8deg) scale(1.08); }
+      48% { bottom: 17px; opacity: 1; transform: rotate(7deg) scale(.98); }
+      61% { bottom: 88px; opacity: 1; transform: rotate(-4deg) scale(1.03); }
+      76% { bottom: 17px; opacity: 1; transform: rotate(3deg) scale(1); }
+      100% { bottom: -125px; opacity: 0; transform: rotate(12deg) scale(.8); }
+    }
+
+    .music-entry {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: rgba(115, 55, 82, .26);
+      backdrop-filter: blur(9px);
+      transition: opacity .55s ease, visibility .55s ease;
+    }
+
+    .music-entry.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+    .entry-box {
+      position: relative;
+      width: min(100%, 430px);
+      padding: 34px 26px 30px;
+      border: 2px solid rgba(255,255,255,.86);
+      border-radius: 42px 16px 42px 16px;
+      background: linear-gradient(145deg, rgba(255,255,255,.84), rgba(255,234,244,.7));
+      box-shadow: 0 25px 60px rgba(91, 41, 66, .25);
+      text-align: center;
+    }
+
+    .entry-cat {
+      position: absolute;
+      right: 64px;
+      bottom: 0;
+      z-index: 3;
+      width: 88px;
+      height: 72px;
+      object-fit: contain;
+      transform: rotate(0deg) scaleX(-1);
+      filter: drop-shadow(0 7px 4px rgba(96, 46, 72, .28));
+      pointer-events: none;
+    }
+    .entry-box h2 { margin: 3px 0 4px; color: var(--pink-dark); font: 700 2.1rem 'Baloo 2', cursive; }
+    .entry-box p { margin: 0; color: #85516a; font-weight: 700; }
+    .entry-box button { position: relative; z-index: 1; margin-top: 21px; }
+
+    @media (max-width: 650px) {
+      body, button, a, pre { cursor: auto; }
+      .cat-cursor { display: none; }
+      header { padding-top: 45px; }
+      .prompt-cat { top: -56px; right: -2px; width: 94px; height: 78px; }
+      .prompt-box { margin-top: 24px; }
+      .entry-cat { right: 51px; bottom: 0; width: 74px; height: 61px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-overlay"></div>
+  <div class="soft-glow glow-one"></div>
+  <div class="soft-glow glow-two"></div>
+  <audio id="backgroundMusic" src="musicisaz.mp3" loop preload="auto"></audio>
+
+  <div id="musicEntry" class="music-entry" role="dialog" aria-label="Entrar na página">
+    <div class="entry-box">
+      <img class="entry-cat" data-src="https://media.giphy.com/media/h0d3K4cSJLs1rotKxA/giphy.gif" alt="Gatinho fofo dando boas-vindas">
+      <h2> Seja Bem-Vindos!</h2>
+      <p>clique para entrar no cantinho da isazbella</p>
+      <button id="enterBtn" type="button">Entrar ♡</button>
+    </div>
+  </div>
+
+  <img id="catCursor" class="cat-cursor" data-src="https://media.giphy.com/media/146gtxJUW6IR7W/giphy.gif" alt="">
+  <img id="surpriseCat" class="surprise-cat" data-src="https://media.giphy.com/media/JoaeMGYYkHpC/giphy.gif" alt="Gatinho surpresa aparecendo na parte inferior" aria-hidden="true">
+
+  <header>
+    <div class="title-wrap">
+      <h1>ISAZBELLA</h1>
+    </div>
+    <p class="subtitle">TEZZA PROMPTS OFICIAL</p>
+    <a class="instagram" href="https://www.instagram.com/_isazbella" target="_blank" rel="noopener">@_isazbella</a>
+  </header>
+
+  <main class="container">
+    <section class="prompt-box" aria-labelledby="promptTitle">
+      <img class="prompt-cat" data-src="https://media.giphy.com/media/4QZK21zlzVIyc/giphy.gif" alt="Gatinho fofo apoiado na caixa do prompt">
+      <h2 id="promptTitle" class="prompt-heading"><span>ISAZBELLA COLABORADORA</span><strong>FLOW</strong></h2>
+      <div class="pre-container">
+        <pre id="prompt1"> 
+                  
+            
+Ultra-realistic cinematic avatar 3D couples portrait, Blender Cycles render in CGI, inspired by Seedream 5.0 beauty realism and high-end IMVU/The Sims virtual aesthetics. Clearly a fictional digital avatar and not a real photograph. Hyper-detailed virtual influencer design with stylized CGI beauty proportions, luxury editorial aesthetics, advanced cinematic lighting, ultra-polished 3D rendering, and “TEZZA PROMPTS” text at the bottom center in elegant minimalist typography.
+
+CAMERA & COMPOSITION
+
+Vertical 3:4 aspect ratio cinematic wedding ceremony portrait. Full-body framing from the lower legs to the top of the floral arch, with the couple centered in the aisle. Male subject standing on the left and female subject standing on the right, facing each other in a tender wedding kiss. Slightly elevated professional wedding photography perspective with balanced symmetrical composition. Sharp focus on both avatars, wedding outfits, flowers, veil, and facial features with soft cinematic depth of field. Elegant church aisle framed by abundant floral arrangements and softly blurred wedding guests in the background.
+
+POSE & BODY POSITIONING
+
+Female subject standing gracefully in front of the male subject with one arm gently resting around his shoulder and the other arm naturally positioned near his torso. Male subject standing closely in front of her with one arm wrapped naturally around her waist and his body slightly angled toward her. Both avatars leaning gently toward each other while sharing an intimate kiss. Their posture expresses affection, emotional connection, elegance, and newlywed romance. The bride’s long veil flows softly behind her while the groom maintains a poised formal stance.
+
+HEAD POSITION & GAZE
+
+Female avatar tilting her head slightly upward and toward the male avatar with eyes softly closed during the kiss. Her long wavy hair falls naturally over her shoulders and down her back beneath the veil. Male avatar lowering his chin slightly toward her with eyes softly closed and relaxed romantic expression. Their faces are positioned closely at the center of the composition, creating a tender cinematic wedding moment.
+
+FEMALE AVATAR
+
+FACIAL EXPRESSION
+
+Confident and elegant couple expressions with polished social-media influencer energy. Female avatar displays a serene romantic expression with softly closed eyes, relaxed facial muscles, and a tender affectionate mood during the kiss. Male avatar displays a calm loving expression with relaxed masculine energy. Overall expressions feel intimate, emotional, elegant, and joyful.
+
+FACE & IDENTITY
+
+Adult female CGI avatar with facial identity preserved exactly like the female reference image, maintaining the same facial proportions, eye shape, eyebrow structure, nose shape, lip volume, jawline, cheekbone definition, freckles placement, facial symmetry, and recognizable beauty characteristics without modification or reinterpretation. Large almond-shaped light hazel-green eyes with dramatic lashes, defined dark feathered brows, soft elegant bridal eye makeup, glossy nude lips, softly sculpted cheekbones, delicate nose structure, refined feminine beauty aesthetics, subtle freckles across the nose and cheeks, and elegant symmetrical facial features. Skin tone features a soft light-medium warm bronze complexion with luminous hydrated highlights, realistic pores, natural skin texture, soft freckles across the nose and cheeks, and refined Seedream beauty realism while maintaining a clearly fictional CGI avatar appearance instead of photoreal human rendering.
+
+HAIR
+
+Long, voluminous, softly wavy ombré hair flowing naturally over the shoulders and down the back. Hair begins with deep dark-brown roots and transitions into beige champagne and cool ash-blonde lengths with subtle dimensional balayage. Center-parted styling with smooth face-framing layers, realistic strand detail, soft movement, natural volume, silky reflections, and cinematic shine. Hair is partially styled beneath a long translucent bridal veil, with elegant loose waves cascading down the back and advanced Blender-style hair simulation.
+
+ACCESSORIES & DETAILS
+
+Elegant small bridal earrings with subtle reflective highlights, refined pearl or crystal details, delicate bridal accessories, and natural glossy nude manicure. Long translucent white veil attached behind the hair and flowing softly down the back with realistic fabric transparency, delicate folds, and graceful movement. Subtle floral wedding details and polished bridal styling illuminated by warm ceremony lighting.
+
+OUTFIT
+
+Elegant white off-the-shoulder bridal gown with delicate lace detailing, fitted bodice, refined floral embroidery, and a flowing floor-length skirt. Dress features realistic satin and lace textures, soft fabric folds, subtle highlights, structured seams, and graceful feminine movement. Off-the-shoulder sleeves frame the collarbone and upper arms while the fitted silhouette transitions into an elegant flowing bridal train.
+
+BODY & PHYSIQUE
+
+Slim thick feminine physique with curvy waistline, smooth body transitions, wide hips, toned abdomen, and premium IMVU/Sims-inspired feminine proportions. Elegant anatomy with polished cinematic CGI contour shading and luxury-avatar beauty rendering. Graceful bridal posture with relaxed shoulders, gently curved torso, and natural intimate positioning against the groom.
+
+SKIN & REALISM
+
+Ultra-detailed Seedream 5.0 skin rendering with realistic pores, subtle glossy highlights, hydrated skin sheen, and physically accurate subsurface scattering. Warm church lighting creates soft reflective highlights across the face, shoulders, collarbone, hands, and arms. Natural CGI skin texture without excessive smoothing, maintaining polished Blender-style material realism and refined bridal beauty.
+
+MALE AVATAR
+
+FACIAL EXPRESSION
+
+Confident and elegant couple expressions with polished social-media influencer energy. Male avatar displays a calm loving expression with relaxed masculine energy and gentle romantic presence during the kiss. Overall atmosphere feels emotional, timeless, intimate, elegant, and celebratory.
+
+FACE & IDENTITY
+
+Adult male CGI avatar with facial identity preserved exactly like the male reference image, maintaining the same jawline shape, beard structure, mustache styling, eyebrow shape, eye spacing, nose proportions, haircut shape, facial symmetry, expression style, and recognizable masculine characteristics without alteration or stylization changes. Strong masculine facial structure with defined cheekbones, thick eyebrows, light blue eyes, natural straight nose, medium lips, subtle light stubble, and relaxed confident expression identical to the reference. Skin tone features a fair-to-light complexion with neutral warm undertones, realistic pores, subtle glossy highlights, and polished Blender-style realism while remaining clearly fictional CGI avatar aesthetics.
+
+HAIR
+
+Short-to-medium tousled wavy blonde hair with natural volume and textured movement. Hair features a soft side-swept shape with loose strands framing the forehead, realistic density, subtle wave variation, polished grooming definition, silky highlights, and cinematic masculine realism. Advanced Blender-style hair simulation preserves natural movement and refined formal styling.
+
+ACCESSORIES & DETAILS
+
+Minimal elegant groom accessories with subtle metallic cufflinks, polished formal details, and natural hand placement around the bride’s waist. Refined wedding styling with realistic fabric reflections and delicate highlights across the formal accessories and clothing textures.
+
+OUTFIT
+
+Tailored dark navy formal wedding suit with structured shoulders, fitted jacket, crisp white dress shirt, and elegant dark tie. Clothing features realistic wool texture, refined seams, natural folds, polished buttons, and subtle warm reflections from the ceremony lighting. Sophisticated groom styling creates a timeless luxury wedding aesthetic.
+
+BODY & PHYSIQUE
+
+Lean athletic masculine physique with broad shoulders, toned upper body, slim waistline, and relaxed protective posture. Premium Sims/IMVU-inspired masculine anatomy with polished cinematic CGI contour shading. Natural formal stance with one arm around the bride’s waist and body angled toward her during the intimate kiss.
+
+SKIN & REALISM
+
+Ultra-detailed Seedream 5.0 skin rendering with realistic pores, hydrated skin sheen, subtle glossy highlights, and physically accurate subsurface scattering. Warm ceremony illumination creates delicate reflections across the forehead, cheekbones, jawline, hands, and neck while preserving realistic cinematic detail. Natural CGI skin texture maintains polished Blender-style material realism without excessive smoothing while preserving luxury-avatar aesthetics.
+
+LIGHTING
+
+Warm romantic church lighting combined with soft diffused natural light entering through the background windows. Golden illumination creates gentle highlights across the couple’s faces, bridal gown, veil, flowers, and formal suit. Soft backlighting outlines the veil and hair while controlled shadows and cinematic contrast emphasize the kiss, floral arch, and emotional wedding atmosphere.
+
+ENVIRONMENT
+
+Elegant historic church interior with a decorated wedding aisle, warm cream-colored architecture, tall softly illuminated windows, and abundant floral arrangements framing both sides of the couple. White, blush, and pale pink flowers with lush green foliage create a romantic floral arch and aisle decoration. Wedding guests appear softly blurred in the background, celebrating with warm smiles and subtle movement while preserving focus on the couple.
+
+MOOD & AESTHETIC
+
+Luxury romantic wedding aesthetic mixed with premium editorial bridal photography, timeless ceremony elegance, modern influencer couple culture, and high-end virtual-avatar beauty rendering. Emotional, intimate, joyful, sophisticated, cinematic, graceful, celebratory, and deeply romantic atmosphere inspired by an elegant wedding kiss surrounded by flowers, family, and guests.
+
+STYLE & RENDER QUALITY
+
+Ultra-photorealistic Blender Cycles CGI render, cinematic realism, Seedream 5.0 beauty rendering, 8K UHD quality, physically accurate lighting and materials, realistic skin micro-detail, IMVU-inspired beauty repaint style, high-fidelity couples avatar rendering, realistic depth of field, glossy beauty aesthetic, polished virtual influencer atmosphere, advanced ray tracing, realistic reflections, luxury editorial lighting, ultra-clean cinematic render quality, and clearly fictional CGI avatar aesthetics instead of a real photograph.
+
+
+
+            
+</pre>
+        <div id="copySuccess" class="copy-message">Prompt copiado!<br>marque @_isazbella ♡</div>
+      </div>
+      <button id="copyBtn" type="button">Copiar prompt</button>
+      <p class="hint">Se o botão não funcionar, selecione o texto e copie manualmente.</p>
+    </section>
+  </main>
+
+  <footer>
+    Marque <a class="instagram" href="https://www.instagram.com/_isazbella" target="_blank" rel="noopener">@_isazbella</a><br>
+    ISAZBELLA  • TEZZA PROMPTS OFICIAL — CONTEÚDO PROTEGIDO.
+  </footer>
+
+  <script>
+    // Os GIFs são carregados somente no navegador, evitando miniaturas automáticas no link.
+    document.querySelectorAll('img[data-src]').forEach((image) => {
+      image.src = image.dataset.src;
+    });
+
+    const GIFS = {
+      mouse: 'https://media.giphy.com/media/146gtxJUW6IR7W/giphy.gif'
+    };
+
+    let audioContext;
+
+    function startAudio() {
+      audioContext = audioContext || new (window.AudioContext || window.webkitAudioContext)();
+      if (audioContext.state === 'suspended') audioContext.resume();
+    }
+
+    // Cria um som curtinho e fofo de gatinho usando Web Audio, sem arquivo externo.
+    function playKittenSound() {
+      if (!audioContext) return;
+      const now = audioContext.currentTime;
+      const oscillator = audioContext.createOscillator();
+      const gain = audioContext.createGain();
+      oscillator.type = 'triangle';
+      oscillator.frequency.setValueAtTime(540 + Math.random() * 80, now);
+      oscillator.frequency.exponentialRampToValueAtTime(230 + Math.random() * 50, now + .16);
+      gain.gain.setValueAtTime(.0001, now);
+      gain.gain.exponentialRampToValueAtTime(.075, now + .025);
+      gain.gain.exponentialRampToValueAtTime(.0001, now + .2);
+      oscillator.connect(gain).connect(audioContext.destination);
+      oscillator.start(now);
+      oscillator.stop(now + .22);
+    }
+
+    function copyPrompt() {
+      const prompt = document.getElementById('prompt1');
+      const message = document.getElementById('copySuccess');
+      const text = prompt.innerText.trim();
+      startAudio();
+      playKittenSound();
+      showSurpriseCat();
+      navigator.clipboard?.writeText(text).catch(() => {
+        const range = document.createRange();
+        range.selectNodeContents(prompt);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand('copy');
+        selection.removeAllRanges();
+      });
+      message.style.display = 'grid';
+      prompt.style.opacity = '.15';
+      setTimeout(() => { message.style.display = 'none'; prompt.style.opacity = '1'; }, 2600);
+    }
+
+    function showSurpriseCat() {
+      const surprise = document.getElementById('surpriseCat');
+      surprise.classList.remove('show');
+      void surprise.offsetWidth;
+      surprise.classList.add('show');
+    }
+
+    const entry = document.getElementById('musicEntry');
+    const backgroundMusic = document.getElementById('backgroundMusic');
+    backgroundMusic.volume = 0.55;
+
+    document.getElementById('enterBtn').addEventListener('click', () => {
+      startAudio();
+      playKittenSound();
+      backgroundMusic.play().catch(() => {});
+      entry.classList.add('hidden');
+    });
+
+    document.getElementById('copyBtn').addEventListener('click', copyPrompt);
+
+    // Um miau suave em cada clique após a entrada, exceto no botão de copiar.
+    document.addEventListener('click', (event) => {
+      if (!entry.classList.contains('hidden')) return;
+      if (event.target.closest('#copyBtn')) return;
+      startAudio();
+      playKittenSound();
+    });
+
+    const catCursor = document.getElementById('catCursor');
+    window.addEventListener('mousemove', (event) => {
+      catCursor.style.left = `${event.clientX}px`;
+      catCursor.style.top = `${event.clientY}px`;
+    });
+
+  </script>
+</body>
+</html>
